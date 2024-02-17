@@ -123,19 +123,31 @@ var FileHandler = /** @class */ (function () {
         this.encoding = encoding || 'UTF8';
     }
     FileHandler.prototype.verifyPermission = function (fileHandle, withWrite) {
-        return new Promise(function (resolve, reject) {
-            var opts = {};
-            if (!!withWrite) {
-                opts["mode"] = "readwrite";
-            }
-            if ((yield fileHandle.queryPermission(opts)) === "granted") {
-                resolve(true);
-            }
-            if ((yield fileHandle.requestPermission(opts)) === "granted") {
-                resolve(true);
-            }
-            reject(false);
-        });
+        var _this = this;
+        return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+            var opts;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        opts = {};
+                        if (!!withWrite) {
+                            opts["mode"] = "readwrite";
+                        }
+                        return [4 /*yield*/, fileHandle.queryPermission(opts)];
+                    case 1:
+                        if ((_a.sent()) === "granted") {
+                            resolve(true);
+                        }
+                        return [4 /*yield*/, fileHandle.requestPermission(opts)];
+                    case 2:
+                        if ((_a.sent()) === "granted") {
+                            resolve(true);
+                        }
+                        reject(false);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
     };
     /**
      *
@@ -144,19 +156,34 @@ var FileHandler = /** @class */ (function () {
      * @memberof FileHandler
      */
     FileHandler.prototype.readFileStreaming = function (options) {
+        var _this = this;
         if (options === void 0) { options = {}; }
-        return new Promise(function (resolve, reject) {
-            var newHandle = (yield window.showOpenFilePicker(options))[0];
-            if (newHandle.kind === "file") {
-                var writableStream = yield newHandle;
-                var fileData = yield newHandle.getFile();
-                // return fileData;
-                resolve(fileData);
-            }
-            else if (newHandle.kind === "directory") {
-                reject(false);
-            }
-        });
+        return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+            var newHandle, writableStream, fileData;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, window.showOpenFilePicker(options)];
+                    case 1:
+                        newHandle = (_a.sent())[0];
+                        if (!(newHandle.kind === "file")) return [3 /*break*/, 4];
+                        return [4 /*yield*/, newHandle];
+                    case 2:
+                        writableStream = _a.sent();
+                        return [4 /*yield*/, newHandle.getFile()];
+                    case 3:
+                        fileData = _a.sent();
+                        // return fileData;
+                        resolve(fileData);
+                        return [3 /*break*/, 5];
+                    case 4:
+                        if (newHandle.kind === "directory") {
+                            reject(false);
+                        }
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
+                }
+            });
+        }); });
     };
     /**
      *

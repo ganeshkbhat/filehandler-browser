@@ -28,7 +28,7 @@
     "demots": "ts-node ./demos/demos.filehandler.ts",
     "demojs": "ts-node ./demos/demos.filehandler.js",
     "builddemots": "npx tsc build ./demos/demos.filehandler.ts.ts",
-    "build": "npx tsc && git add .",
+    "build": "npx tsc && npx webpack --config webpack.config.js && git add .",
     "uglify": "uglifyjs --compress --mangle reserved=['$','require','exports'] index.js -o index.min.js",
     "test": "mocha --reporter spec --recursive --timeout 60000"
   },
@@ -71,6 +71,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "uglify": "^0.1.5",
-    "unimported": "^1.31.1"
+    "unimported": "^1.31.1",
+    "webpack": "^5.90.2",
+    "webpack-cli": "^5.1.4"
   }
 }
