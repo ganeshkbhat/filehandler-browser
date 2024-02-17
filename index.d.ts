@@ -95,9 +95,4 @@ declare class FileHandler implements FileHandlerInterface {
      */
     writeFileStreaming(iterableData: any[], options?: object): Promise<any>;
 }
-declare const _default: {
-    FileHandler: typeof FileHandler;
-    FileHandlerStatic: typeof FileHandlerStatic;
-};
-export default _default;
 //# sourceMappingURL=index.d.ts.map

@@ -160,8 +160,8 @@ class FileHandler implements FileHandlerInterface {
   }
 }
 
-export default {
-  FileHandler,
-  FileHandlerStatic
-}
+// export default {
+//   FileHandler,
+//   FileHandlerStatic
+// }
 
