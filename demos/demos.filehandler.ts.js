@@ -53,9 +53,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = __importDefault(require("../index"));
-var FileHandler = index_1.default.FileHandler;
-var FileHandlerStatic = index_1.default.FileHandlerStatic;
+var index_js_1 = __importDefault(require("../index.js"));
+var FileHandler = index_js_1.default.FileHandler;
+var FileHandlerStatic = index_js_1.default.FileHandlerStatic;
 var fs = new FileHandler("./demos/demos.test.txt");
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var tst, written;

@@ -16,7 +16,7 @@
 
 'use strict';
 
-import { default as filehandler } from "../index";
+import { default as filehandler } from "../index.js";
 
 const FileHandler = filehandler.FileHandler;
 const FileHandlerStatic = filehandler.FileHandlerStatic;

@@ -16,7 +16,7 @@
 
 'use strict';
 
-const filehandler = require("../src/index").default;
+const filehandler = require("../index").default;
 
 const FileHandler = filehandler.FileHandler;
 const FileHandlerStatic = filehandler.FileHandlerStatic;

@@ -23,7 +23,7 @@
  * @export
  * @interface FileHandlerStaticInterface
  */
-export interface FileHandlerStaticInterface {
+interface FileHandlerStaticInterface {
   readFileStreaming: (filePath: string, encoding?: string | null | undefined) => Promise<any>
   writeFileStreaming: (filePath: string, iterableData: any[], encoding?: string | null | undefined) => Promise<any>
 }
@@ -34,7 +34,7 @@ export interface FileHandlerStaticInterface {
  * @export
  * @interface FileHandlerInterface
  */
-export interface FileHandlerInterface {
+interface FileHandlerInterface {
   filePath: string;
   encoding: string;
   readFileStreaming: () => Promise<any>
@@ -48,7 +48,7 @@ export interface FileHandlerInterface {
  * @class FileHandlerStatic
  * @implements {FileHandlerStaticInterface}
  */
-export class FileHandlerStatic implements FileHandlerStaticInterface {
+class FileHandlerStatic implements FileHandlerStaticInterface {
 
   /**
    *
@@ -87,7 +87,7 @@ export class FileHandlerStatic implements FileHandlerStaticInterface {
  * @class FileHandler
  * @implements {FileHandlerInterface}
  */
-export class FileHandler implements FileHandlerInterface {
+class FileHandler implements FileHandlerInterface {
   filePath: string;
   encoding: string;
 
@@ -107,8 +107,8 @@ export class FileHandler implements FileHandlerInterface {
       const opts: any = {};
       if (!!withWrite) { opts["mode"] = "readwrite"; }
 
-      if ((await fileHandle.queryPermission(opts)) === "granted") { resolve(true); }
-      if ((await fileHandle.requestPermission(opts)) === "granted") { resolve(true); }
+      if ((await (fileHandle as any).queryPermission(opts)) === "granted") { resolve(true); }
+      if ((await (fileHandle as any).requestPermission(opts)) === "granted") { resolve(true); }
 
       reject(false);
     });
@@ -122,7 +122,7 @@ export class FileHandler implements FileHandlerInterface {
    */
   readFileStreaming(options: object = {}): Promise<any> {
     return new Promise(async (resolve, reject) => {
-      const [newHandle] = await window.showOpenFilePicker(options);
+      const [newHandle] = await (window as any).showOpenFilePicker(options);
       if (newHandle.kind === "file") {
         const writableStream = await newHandle;
         const fileData = await newHandle.getFile();
@@ -144,7 +144,7 @@ export class FileHandler implements FileHandlerInterface {
   writeFileStreaming(iterableData: any[], options: object = {}): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
-        const newHandle = await window.showSaveFilePicker();
+        const newHandle = await (window as any).showSaveFilePicker();
         const writableStream = await newHandle.createWritable();
         // writableStream.write({ type: "write", position, data });
         // writableStream.write({ type: "seek", position });

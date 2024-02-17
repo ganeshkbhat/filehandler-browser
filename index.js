@@ -61,7 +61,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FileHandler = exports.FileHandlerStatic = void 0;
 /**
  *
  *
@@ -103,7 +102,6 @@ var FileHandlerStatic = /** @class */ (function () {
     };
     return FileHandlerStatic;
 }());
-exports.FileHandlerStatic = FileHandlerStatic;
 /**
  *
  *
@@ -234,7 +232,6 @@ var FileHandler = /** @class */ (function () {
     };
     return FileHandler;
 }());
-exports.FileHandler = FileHandler;
 exports.default = {
     FileHandler: FileHandler,
     FileHandlerStatic: FileHandlerStatic

@@ -17,7 +17,7 @@
  * @export
  * @interface FileHandlerStaticInterface
  */
-export interface FileHandlerStaticInterface {
+interface FileHandlerStaticInterface {
     readFileStreaming: (filePath: string, encoding?: string | null | undefined) => Promise<any>;
     writeFileStreaming: (filePath: string, iterableData: any[], encoding?: string | null | undefined) => Promise<any>;
 }
@@ -27,7 +27,7 @@ export interface FileHandlerStaticInterface {
  * @export
  * @interface FileHandlerInterface
  */
-export interface FileHandlerInterface {
+interface FileHandlerInterface {
     filePath: string;
     encoding: string;
     readFileStreaming: () => Promise<any>;
@@ -40,7 +40,7 @@ export interface FileHandlerInterface {
  * @class FileHandlerStatic
  * @implements {FileHandlerStaticInterface}
  */
-export declare class FileHandlerStatic implements FileHandlerStaticInterface {
+declare class FileHandlerStatic implements FileHandlerStaticInterface {
     /**
      *
      *
@@ -68,7 +68,7 @@ export declare class FileHandlerStatic implements FileHandlerStaticInterface {
  * @class FileHandler
  * @implements {FileHandlerInterface}
  */
-export declare class FileHandler implements FileHandlerInterface {
+declare class FileHandler implements FileHandlerInterface {
     filePath: string;
     encoding: string;
     /**
