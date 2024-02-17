@@ -28,8 +28,8 @@
     "demots": "ts-node ./demos/demos.filehandler.ts",
     "demojs": "ts-node ./demos/demos.filehandler.js",
     "builddemots": "npx tsc build ./demos/demos.filehandler.ts.ts",
-    "webpack": "&& npx webpack --config webpack.config.js",
-    "build": "npx tsc && git add .",
+    "webpack": "npx webpack --config webpack.config.js",
+    "build": "tsc && git add .",
     "uglify": "uglifyjs --compress --mangle reserved=['$','require','exports'] index.js -o index.min.js",
     "test": "mocha --reporter spec --recursive --timeout 60000"
   },
