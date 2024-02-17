@@ -1,13 +1,13 @@
 /**
  * 
- * Package: stream-fs
+ * Package: fs-handlers-browser
  * Author: Ganesh B
  * Description: Read and Write files in files using streaming
- * Install: npm i stream-fs --save
- * Github: https://github.com/ganeshkbhat/filehandler
- * npmjs Link: https://www.npmjs.com/package/stream-fs
+ * Install: npm i fs-handlers-browser --save
+ * Github: https://github.com/ganeshkbhat/filehandler-browser
+ * npmjs Link: https://www.npmjs.com/package/fs-handlers-browser
  * File: index.js
- * File Description: Read and Write files in files using streaming
+ * File Description: Read and Write files in files using streaming using browser
  * 
  * 
 */
@@ -19,6 +19,7 @@
 const filehandler = require("../src/index").default;
 
 const FileHandler = filehandler.FileHandler;
+const FileHandlerStatic = filehandler.FileHandlerStatic;
 
 const fs = new FileHandler("./demos/demos.test.txt");
 (async () => {

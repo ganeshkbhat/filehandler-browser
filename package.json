@@ -3,13 +3,74 @@
   "version": "1.0.0",
   "description": "client side file handler filehandler-browser for the browser",
   "main": "index.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    }
+  },
+  "unpkg": "index.min.js",
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "pre-commit": {
+    "run": [
+      "build",
+      "uglify",
+      "test"
+    ]
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "pre-push": {
+    "run": [],
+    "silent": true
+  },
+  "scripts": {
+    "demots": "ts-node ./demos/demos.filehandler.ts",
+    "demojs": "ts-node ./demos/demos.filehandler.js",
+    "builddemots": "npx tsc build ./demos/demos.filehandler.ts.ts",
+    "build": "npx tsc && git add .",
+    "uglify": "uglifyjs --compress --mangle reserved=['$','require','exports'] index.js -o index.min.js",
+    "test": "mocha --reporter spec --recursive --timeout 60000"
+  },
+  "keywords": [
+    "fs",
+    "file handler",
+    "streaming",
+    "instance",
+    "static handlers",
+    "work with files easily",
+    "read",
+    "write",
+    "read write files",
+    "read write",
+    "read files",
+    "write files",
+    "nodejs",
+    "typescript ts support",
+    "browser support"
+  ],
+  "author": "Ganesh B <ganeshsurfs@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ganeshkbhat/filehandler-browser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ganeshkbhat/filehandler-browser/issues"
+  },
+  "homepage": "https://github.com/ganeshkbhat/filehandler-browser#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "chai": "^4.4.1",
+    "clean-pkg-json": "^1.2.0",
+    "esbuild": "^0.20.0",
+    "mocha": "^10.2.0",
+    "pre-commit": "^1.2.2",
+    "pre-push": "^0.1.4",
+    "sinon": "^17.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "uglify": "^0.1.5",
+    "unimported": "^1.31.1"
+  }
 }
