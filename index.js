@@ -63,6 +63,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 /**
  *
  *
+ * @class FileHandlerStaticInterface
+ */
+var FileHandlerStaticInterface = /** @class */ (function () {
+    function FileHandlerStaticInterface() {
+    }
+    return FileHandlerStaticInterface;
+}());
+/**
+ *
+ *
  * @class FileHandlerStatic
  * @implements {FileHandlerStaticInterface}
  */
@@ -77,7 +87,7 @@ var FileHandlerStatic = /** @class */ (function () {
      * @return {*}  {Promise<any>}
      * @memberof FileHandlerStatic
      */
-    FileHandlerStatic.prototype.readFileStreaming = function (filePath, encoding) {
+    FileHandlerStatic.readFileStreaming = function (filePath, encoding) {
         return new Promise(function (resolve, reject) {
         });
     };
@@ -90,7 +100,7 @@ var FileHandlerStatic = /** @class */ (function () {
      * @return {*}  {Promise<any>}
      * @memberof FileHandlerStatic
      */
-    FileHandlerStatic.prototype.writeFileStreaming = function (filePath, iterableData, encoding) {
+    FileHandlerStatic.writeFileStreaming = function (filePath, iterableData, encoding) {
         var _this = this;
         return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {

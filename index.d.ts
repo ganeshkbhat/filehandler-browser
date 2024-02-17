@@ -14,11 +14,11 @@
 /**
  *
  *
- * @interface FileHandlerStaticInterface
+ * @class FileHandlerStaticInterface
  */
-interface FileHandlerStaticInterface {
-    readFileStreaming: (filePath: string, encoding?: string | null | undefined) => Promise<any>;
-    writeFileStreaming: (filePath: string, iterableData: any[], encoding?: string | null | undefined) => Promise<any>;
+declare class FileHandlerStaticInterface {
+    static readFileStreaming: (filePath: string, encoding?: string | null | undefined) => Promise<any>;
+    static writeFileStreaming: (filePath: string, iterableData: any[], encoding?: string | null | undefined) => Promise<any>;
 }
 /**
  *
@@ -46,7 +46,7 @@ declare class FileHandlerStatic implements FileHandlerStaticInterface {
      * @return {*}  {Promise<any>}
      * @memberof FileHandlerStatic
      */
-    readFileStreaming(filePath: string, encoding?: string | null | undefined): Promise<any>;
+    static readFileStreaming(filePath: string, encoding?: string | null | undefined): Promise<any>;
     /**
      *
      *
@@ -56,7 +56,7 @@ declare class FileHandlerStatic implements FileHandlerStaticInterface {
      * @return {*}  {Promise<any>}
      * @memberof FileHandlerStatic
      */
-    writeFileStreaming(filePath: string, iterableData: any[], encoding?: string | null | undefined): Promise<any>;
+    static writeFileStreaming(filePath: string, iterableData: any[], encoding?: string | null | undefined): Promise<any>;
 }
 /**
  *
