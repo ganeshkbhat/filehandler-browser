@@ -16,11 +16,9 @@
 
 'use strict';
 
-
 /**
  *
  *
- * @export
  * @interface FileHandlerStaticInterface
  */
 interface FileHandlerStaticInterface {
@@ -28,10 +26,10 @@ interface FileHandlerStaticInterface {
   writeFileStreaming: (filePath: string, iterableData: any[], encoding?: string | null | undefined) => Promise<any>
 }
 
+
 /**
  *
  *
- * @export
  * @interface FileHandlerInterface
  */
 interface FileHandlerInterface {
@@ -44,7 +42,6 @@ interface FileHandlerInterface {
 /**
  *
  *
- * @export
  * @class FileHandlerStatic
  * @implements {FileHandlerStaticInterface}
  */
@@ -78,12 +75,13 @@ class FileHandlerStatic implements FileHandlerStaticInterface {
 
     });
   }
+
 }
+
 
 /**
  *
  *
- * @export
  * @class FileHandler
  * @implements {FileHandlerInterface}
  */
@@ -102,6 +100,14 @@ class FileHandler implements FileHandlerInterface {
     this.encoding = encoding || 'UTF8';
   }
 
+  /**
+   *
+   *
+   * @param {FileSystemFileHandle} fileHandle
+   * @param {boolean} withWrite
+   * @return {*}  {Promise<any>}
+   * @memberof FileHandler
+   */
   verifyPermission(fileHandle: FileSystemFileHandle, withWrite: boolean): Promise<any> {
     return new Promise(async (resolve, reject) => {
       const opts: any = {};
@@ -117,6 +123,7 @@ class FileHandler implements FileHandlerInterface {
   /**
    *
    *
+   * @param {object} [options={}]
    * @return {*}  {Promise<any>}
    * @memberof FileHandler
    */
@@ -138,6 +145,7 @@ class FileHandler implements FileHandlerInterface {
    *
    *
    * @param {any[]} iterableData
+   * @param {object} [options={}]
    * @return {*}  {Promise<any>}
    * @memberof FileHandler
    */
@@ -158,10 +166,6 @@ class FileHandler implements FileHandlerInterface {
       }
     });
   }
-}
 
-// export default {
-//   FileHandler,
-//   FileHandlerStatic
-// }
+}
 

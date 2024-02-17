@@ -63,7 +63,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 /**
  *
  *
- * @export
  * @class FileHandlerStatic
  * @implements {FileHandlerStaticInterface}
  */
@@ -104,7 +103,6 @@ var FileHandlerStatic = /** @class */ (function () {
 /**
  *
  *
- * @export
  * @class FileHandler
  * @implements {FileHandlerInterface}
  */
@@ -119,6 +117,14 @@ var FileHandler = /** @class */ (function () {
         this.filePath = filePath;
         this.encoding = encoding || 'UTF8';
     }
+    /**
+     *
+     *
+     * @param {FileSystemFileHandle} fileHandle
+     * @param {boolean} withWrite
+     * @return {*}  {Promise<any>}
+     * @memberof FileHandler
+     */
     FileHandler.prototype.verifyPermission = function (fileHandle, withWrite) {
         var _this = this;
         return new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
@@ -149,6 +155,7 @@ var FileHandler = /** @class */ (function () {
     /**
      *
      *
+     * @param {object} [options={}]
      * @return {*}  {Promise<any>}
      * @memberof FileHandler
      */
@@ -186,6 +193,7 @@ var FileHandler = /** @class */ (function () {
      *
      *
      * @param {any[]} iterableData
+     * @param {object} [options={}]
      * @return {*}  {Promise<any>}
      * @memberof FileHandler
      */

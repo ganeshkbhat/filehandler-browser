@@ -14,7 +14,6 @@
 /**
  *
  *
- * @export
  * @interface FileHandlerStaticInterface
  */
 interface FileHandlerStaticInterface {
@@ -24,7 +23,6 @@ interface FileHandlerStaticInterface {
 /**
  *
  *
- * @export
  * @interface FileHandlerInterface
  */
 interface FileHandlerInterface {
@@ -36,7 +34,6 @@ interface FileHandlerInterface {
 /**
  *
  *
- * @export
  * @class FileHandlerStatic
  * @implements {FileHandlerStaticInterface}
  */
@@ -64,7 +61,6 @@ declare class FileHandlerStatic implements FileHandlerStaticInterface {
 /**
  *
  *
- * @export
  * @class FileHandler
  * @implements {FileHandlerInterface}
  */
@@ -78,10 +74,19 @@ declare class FileHandler implements FileHandlerInterface {
      * @memberof FileHandler
      */
     constructor(filePath: string, encoding?: string | null | undefined);
+    /**
+     *
+     *
+     * @param {FileSystemFileHandle} fileHandle
+     * @param {boolean} withWrite
+     * @return {*}  {Promise<any>}
+     * @memberof FileHandler
+     */
     verifyPermission(fileHandle: FileSystemFileHandle, withWrite: boolean): Promise<any>;
     /**
      *
      *
+     * @param {object} [options={}]
      * @return {*}  {Promise<any>}
      * @memberof FileHandler
      */
@@ -90,6 +95,7 @@ declare class FileHandler implements FileHandlerInterface {
      *
      *
      * @param {any[]} iterableData
+     * @param {object} [options={}]
      * @return {*}  {Promise<any>}
      * @memberof FileHandler
      */
